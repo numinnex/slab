@@ -284,6 +284,12 @@ impl<T> Slab<T> {
         }
     }
 
+    /// Advances the slab next position.
+    pub unsafe fn advance(&mut self) {
+        self.len += 1;
+        self.next += 1;
+    }
+
     /// Construct a new, empty `Slab` with the specified capacity.
     ///
     /// The returned slab will be able to store exactly `capacity` without
